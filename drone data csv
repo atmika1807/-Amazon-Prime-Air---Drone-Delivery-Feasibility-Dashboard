@@ -1,0 +1,36 @@
+import pandas as pd
+import os
+
+# Create folder to store CSV files
+folder_path = r"C:\Users\atpt1\amazon prime air\dataset"
+os.makedirs(folder_path, exist_ok=True)
+
+# Dataset 1: Drone-Compatible Product Categories
+df_items = pd.DataFrame({
+    "Category": [
+        "Electronics", "Apparel & Accessories", "Beauty Products",
+        "Books & Media", "Toys & Games", "Groceries (Non-perishable)",
+        "Pharmaceuticals", "Pet Products", "Household Items"
+    ],
+    "Deliverable_Percentage": [90, 85, 88, 80, 75, 70, 95, 78, 82]
+})
+df_items.to_csv(os.path.join(folder_path, "drone_items.csv"), index=False)
+
+# Dataset 2: Massachusetts County Suitability
+df_counties = pd.DataFrame({
+    "County": [
+        "Middlesex", "Suffolk", "Norfolk", "Hampden", "Bristol",
+        "Essex", "Worcester", "Berkshire", "Franklin"
+    ],
+    "Suitability_Score": [90, 85, 82, 70, 68, 72, 75, 40, 45]
+})
+df_counties.to_csv(os.path.join(folder_path, "massachusetts_counties.csv"), index=False)
+
+# Dataset 3: Environmental Impact
+df_emissions = pd.DataFrame({
+    "Mode": ["Drone", "Bike Courier", "Delivery Van", "Electric Van", "On-foot"],
+    "CO2_grams": [22, 15, 120, 45, 10]
+})
+df_emissions.to_csv(os.path.join(folder_path, "emissions_data.csv"), index=False)
+
+print("Datasets saved successfully to 'drone_dashboard_datasets' folder.")
